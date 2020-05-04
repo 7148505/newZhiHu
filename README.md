@@ -17,7 +17,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 项目本地运行方法
 
- - git clone https://github.com/7148505/newZhiHu
+ - `git clone https://github.com/7148505/newZhiHu`
 
  - 前端代码在根目录下，node 代码在 server 目录下，打开对应的目录，查看 package.json，npm 执行 对应的 script 即可。
 
