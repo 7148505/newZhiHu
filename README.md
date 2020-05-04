@@ -1,7 +1,7 @@
 # newzhihu1.0
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Configuration Reference](https://cli.vuejs.org/zh/config/).
 ### NewZhiHu
 这是一个突发奇想地高仿知乎-后期会开发多端APP 微信小程序
 
@@ -45,4 +45,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### License
 [MIT](https://choosealicense.com/licenses/mit/).
+
 Copyright (c) 2018 XiaoNing
