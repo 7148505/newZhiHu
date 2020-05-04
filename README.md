@@ -45,3 +45,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### License
 [MIT](https://choosealicense.com/licenses/mit/).
+Copyright (c) 2018 XiaoNing
