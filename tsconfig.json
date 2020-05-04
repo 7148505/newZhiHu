@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    // "module": "esnext",
+    "module": "commonjs",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -12,13 +13,18 @@
     "sourceMap": true,
     "baseUrl": "",
     "watch": true,
-    "types": ["webpack-env", "mocha", "chai","@types/node","@types/axios"],
+    "types": ["webpack-env", "mocha", "chai","@types/node"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "*": [
+        "node_modules/*",
+        "src/types/*"
+    ]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
   },
   "include": [
+    "src/**/*",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
