@@ -42,3 +42,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [ ] 个人中心信息展示、资料修改（0%）
 - [ ] 头像上传（0%）
 - [ ] app首页（0%）
+
+### License
+[MIT](https://choosealicense.com/licenses/mit/).
