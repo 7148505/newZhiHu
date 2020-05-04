@@ -11,7 +11,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 技术栈
 
-前端：HTML、CSS、Less、ES6(7|8)、Webpack4、Vue CLI、Vue.JS、Vuex、Vue Router3、Axios、lodash
+前端：HTML、CSS、Less、ES6(7|8)、Vue CLI、Vue.JS、Vuex、Vue Router3、Axios、lodash
 
 后端：Node.js、MySQL/MongoDB
 
