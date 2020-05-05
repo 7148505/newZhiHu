@@ -46,4 +46,4 @@ See [Configuration Reference](https://cli.vuejs.org/zh/config/).
 ### License
 [MIT](https://choosealicense.com/licenses/mit/).
 
-Copyright (c) 2018 XiaoNing
+Copyright (c) 2020 XiaoNing
