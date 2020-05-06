@@ -1,27 +1,51 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    // 编译目标平台
+    "target": "ESNext",
+    // 输出目录
+    // "outDir": "./dist/",
+    // 如果使用 webpack 2+ 或 rollup，可以利用 tree-shake:
+    // 指定生成哪个模块系统代码
     // "module": "esnext",
     "module": "commonjs",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
+    // 模块的解析
     "moduleResolution": "node",
+    // 在表达式和声明上有隐含的any类型时报错
+    // "noImplicitAny": false,
+    // 把 ts 文件编译成 js 文件的时候，同时生成对应的 map 文件
+    "sourceMap": true,
+    // 这可以对 `this` 上的数据 property 进行更严格的推断
+    "strict": true,
+    // 允许编译javascript文件
+    // "allowJs": true,
+    "jsx": "preserve",
+    // 指定基础目录
+    "baseUrl": "",
+    // 启用装饰器
     "experimentalDecorators": true,
+    // 移除注释
+    // "removeComments": true,
+    "importHelpers": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "baseUrl": "",
     "watch": true,
-    "types": ["webpack-env", "mocha", "chai","@types/node"],
+    "declaration": true,
+    // "types": ["webpack-env", "mocha", "chai","@types/node"],
+    "pretty": true,
+    // 是相对于"baseUrl"进行解析
     "paths": {
-      "@/*": ["src/*"],
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-    ]
+      "vue": ["node_modules/vue/types"],
+      "@/*": ["src/*"]
+      //   "*": [
+      //     "node_modules/*",
+      //     "src/types/*"
+      // ]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+      // 添加需要的解析的语法，否则TS会检测出错。
+    "lib": ["ESNext", "dom", "dom.iterable", "scripthost"],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "include": [
     "src/**/*",
@@ -33,3 +57,55 @@
   ],
   "exclude": ["node_modules"]
 }
+
+// {
+//   "compilerOptions": {
+//     "target": "esnext",
+//     "module": "commonjs",
+//     "strict": true,
+//     "strictNullChecks": true,
+//     "jsx": "preserve",
+//     "importHelpers": true,
+//     "moduleResolution": "node",
+//     "experimentalDecorators": true,
+//     // JSON parse
+//     "resolveJsonModule": true,
+//     "esModuleInterop": true,
+//     // error TS7017: Index signature of object type implicitly has an 'any' type.
+//     "noImplicitAny": false,
+//     // Don't emit; allow Babel to transform files.
+//     "noEmit": true,
+//     "sourceMap": true,
+//     "allowJs": true,
+//     "baseUrl": ".",
+//     "types": [
+//       "node",
+//       "webpack-env"
+//     ],
+//     "paths": {
+//       "@/*": [
+//         "/web/src/*"
+//       ]
+//     },
+//     "lib": [
+//       "esnext",
+//       "dom",
+//       "dom.iterable",
+//       "scripthost"
+//     ]
+//   },
+//   "include": [
+//     "src/**/*.ts",
+//     "src/**/*.tsx",
+//     "src/**/*.vue",
+//     "mock/**/*.ts",
+//     "mock/*.ts",
+//     "tests/**/*.ts",
+//     "tests/**/*.tsx",
+//     "./types/*.d.ts"
+//   ],
+//   "exclude": [
+//     "node_modules",
+//     "build/*.ts"
+//   ]
+// }

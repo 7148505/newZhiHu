@@ -23,24 +23,27 @@ const app = express();
 app.set("port", process.env.PORT || 3000);
 
 app.use(cors())
-app.use((req:any, res:any, next:any) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Expose-Headers, Platform, Token, Uid"
-  );
-  res.header(
-    "Access-Control-Allow-Methods",
-    "PUT, POST, GET, DELETE, OPTIONS, HEAD"
-  );
-  res.header("Content-Type", "application/json; charset=utf-8");
-  next();
-});
+// app.use((req:any, res:any, next:any) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Expose-Headers, Platform, Token, Uid"
+//   );
+//   res.header(
+//     "Access-Control-Allow-Methods",
+//     "PUT, POST, GET, DELETE, OPTIONS, HEAD"
+//   );
+//   res.header("Content-Type", "application/json; charset=utf-8");
+//   next();
+// });
 app.use(express.json())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
-
-mongoose.connect('mongodb://localhost:27017/runoob');
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true)
+// 链接mongodb
+mongoose.connect('mongodb://localhost:27017/zhihu',{ useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on('open',function(err: any){
   if(err){
@@ -64,4 +67,4 @@ require('./routers/index')(app)
 //   console.log("express listen port 8091");
 //   console.log("http://localhost:8091")
 // });
-export default app;
+export = app;

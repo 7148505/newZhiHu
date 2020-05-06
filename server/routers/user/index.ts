@@ -11,9 +11,8 @@ module.exports = (app: { use: (arg0: string, arg1: any) => void }) => {
     // const Article = mongoose.model('Article')
     // const Category = mongoose.model('Category')
     // 获取资源
-  router.get('/getData', async (req:any, res:any) => {
-    res.send("hello world")
-  })
-  
-  app.use('/index/api', router)
+    router.get('/getData', async (req:any, res:any) => {
+      res.send("hello world")
+    })
+    app.use('/index/api', router)
 }

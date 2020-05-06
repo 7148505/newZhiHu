@@ -10,13 +10,14 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     username: {
         type: String,
+        index: true,
         unique: true
     },
     password: {
         type: String
     },
-    age: Number,
-    address: String,
+    // age: Number,
+    // address: String,
     createAt: {
         type: Date,
         default : Date.now()

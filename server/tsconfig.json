@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    // "module": "ESNext",
+    "module": "commonjs",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": "",
+    "watch": true,
+    // "types": ["@types/node","@types/jest","@types/mocha","jest", "node",],
+    "paths": {
+      "@/*": ["../web/src/*"],
+      "*": [
+        "node_modules/*",
+        "src/types/*"
+    ]
+    },
+    "lib": ["ESNext", "dom", "dom.iterable", "scriptHost"],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "include": [
+    "*",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.vue",
+    "test/**/*.ts",
+    "test/**/*.tsx",
+    "test/**/*.test.ts",
+    "./test/*.test.ts",
+  ],
+  "exclude": ["node_modules","**/*.test.ts", "__tests__"]
+}
