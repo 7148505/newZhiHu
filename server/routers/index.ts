@@ -24,20 +24,32 @@ module.exports = (app: { use: (arg0: string, arg1: any) => void }) => {
     });
     // 这里的业务逻辑将写在 两个post 路由里
     // 登录
-    router.post('/login', function (req: { body: { username: any; password: any; }; }, res: { send: (arg0: string) => void; }) {
+    router.post('/login', function (req: any, res: any) {
+        let md5 = crypto.createHash("sha1");
+        // 加密
+        let newPas = md5.update(req.body.password).digest("hex");
+        // 获取用户提交的信息
         let postData = {
             username: req.body.username,
-            password: req.body.password
+            password: newPas
         };
         User.findOne({
             username: postData.username,
             password: postData.password
         }, function (err: any, data: any) {
-            if(err) throw err;
+            // if(err) throw err;
             if(data){
-                res.send('登录成功');
+                res.json({
+                    success: 200,
+                    message: '登录成功'
+                })
+                // res.send('登录成功');
             }else{
-                res.send('账号或密码错误')
+                res.status(302).json({
+                    success: 302,
+                    message: '账号或密码错误'
+                })
+                // res.send('')
             }
         } )
     });
@@ -45,7 +57,6 @@ module.exports = (app: { use: (arg0: string, arg1: any) => void }) => {
     router.post('/register', function (req: any, res: any) {
         let md5 = crypto.createHash("sha1");
         let newPas = md5.update(req.body.password).digest("hex");
-        console.log('newPas' + newPas)
         // 获取用户提交的信息
         let userRegister = new User({
             username: req.body.username,
@@ -77,7 +88,7 @@ module.exports = (app: { use: (arg0: string, arg1: any) => void }) => {
                    // res.send('用户名已被注册');
 					res.json({
 						success: false,
-						error: '该用户名已注册'
+						message: '该用户名已注册'
 					})
                 } else {
                     // 保存到数据库

@@ -34,17 +34,28 @@
 //     }
 //   }
 // }
+interface baseUrl {
+  dev:string
+  pro:string
+  proMock:string
+}
+// 基本路径
+export const baseUrl:baseUrl= {
+  /** 
+  * 本地环境
+  */
+  dev: "http://localhost:8090/",
+  /** 
+  * 线上环境
+  */
+  pro: "http://localhost:8090/",
+  /** 
+  * 线上mock
+  */
+  proMock:"http://localhost:8090/",
 
-export = {
-  /**
-   * @description api请求基础路径
-   */
-  baseUrl: {
-    dev: "http://localhost:3000/",
-    pro: "http://localhost:3000/"
-  },
-  /**
-   * @description token在Cookie中存储的天数，默认1天
-   */
-  cookieExpires: 1
-};
+}
+/**
+ * @description token在Cookie中存储的天数，默认1天
+ */
+export const cookieExpires: number = 1

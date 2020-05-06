@@ -15,7 +15,7 @@
     "watch": true,
     // "types": ["@types/node","@types/jest","@types/mocha","jest", "node",],
     "paths": {
-      "@/*": ["../web/src/*"],
+      "@/*": ["../Client/src/*"],
       "*": [
         "node_modules/*",
         "src/types/*"

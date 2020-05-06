@@ -20,7 +20,7 @@ import mongoose from "mongoose";
 // import * as bodyParser from "body-parser";
 const app = express();
 // Express configuration
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 8090);
 
 app.use(cors())
 // app.use((req:any, res:any, next:any) => {

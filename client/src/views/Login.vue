@@ -20,8 +20,9 @@
           @blur="capsTooltip = false"
           @keyup.enter="handleLogin"
         />
+        <!-- <button class="btn">Login</button> -->
         <div class="btn" @click="handleLogin">
-          <a href="#">Login</a>
+          Login
         </div>
       </div>
       <div class="msg">
@@ -36,7 +37,7 @@
 // import Vue from "vue";
 import { Vue, Component } from "vue-property-decorator";
 // import { Route } from "vue-router";
-import { saveErrorLogger, userRegistration } from "../api/data";
+import { getUserList, userRegistration,userLogin } from "../api/data";
 
 @Component({
   name: "Login",
@@ -46,8 +47,8 @@ export default class Login extends Vue {
   private capsTooltip = false;
 
   private loginForm = {
-    username: "admin",
-    password: "1111111"
+    username: "",
+    password: ""
   };
   // created() {
   // console.log("1");
@@ -77,9 +78,10 @@ export default class Login extends Vue {
   // @Watch("$route", { immediate: true })
   private handleLogin(): void {
     // let data = {};
-    userRegistration(this.loginForm).then((res: object) => {
+    userLogin(this.loginForm).then((res: object) => {
       // this.tableData = res.data;
-      console.log("登录" + res);
+      // console.log("登录" + res);
+      console.log(res)
     });
   }
 }
@@ -139,6 +141,7 @@ export default class Login extends Vue {
   margin-top: 40px;
   background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
   color: #fff;
+  cursor: pointer;
   a {
     text-decoration-line: none;
     color: #1b2343;

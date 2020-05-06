@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "dev": "nodemon server.ts",
     "server": "nodemon server.ts"
   },
   "author": "",

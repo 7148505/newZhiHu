@@ -20,13 +20,13 @@
     // "allowJs": true,
     "jsx": "preserve",
     // 指定基础目录
-    "baseUrl": "",
+    "baseUrl": ".",
     // 启用装饰器
     "experimentalDecorators": true,
     // 移除注释
     // "removeComments": true,
     "importHelpers": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true,  // <-- ADD THIS LINE
     "allowSyntheticDefaultImports": true,
     "watch": true,
     "declaration": true,
@@ -57,55 +57,3 @@
   ],
   "exclude": ["node_modules"]
 }
-
-// {
-//   "compilerOptions": {
-//     "target": "esnext",
-//     "module": "commonjs",
-//     "strict": true,
-//     "strictNullChecks": true,
-//     "jsx": "preserve",
-//     "importHelpers": true,
-//     "moduleResolution": "node",
-//     "experimentalDecorators": true,
-//     // JSON parse
-//     "resolveJsonModule": true,
-//     "esModuleInterop": true,
-//     // error TS7017: Index signature of object type implicitly has an 'any' type.
-//     "noImplicitAny": false,
-//     // Don't emit; allow Babel to transform files.
-//     "noEmit": true,
-//     "sourceMap": true,
-//     "allowJs": true,
-//     "baseUrl": ".",
-//     "types": [
-//       "node",
-//       "webpack-env"
-//     ],
-//     "paths": {
-//       "@/*": [
-//         "/web/src/*"
-//       ]
-//     },
-//     "lib": [
-//       "esnext",
-//       "dom",
-//       "dom.iterable",
-//       "scripthost"
-//     ]
-//   },
-//   "include": [
-//     "src/**/*.ts",
-//     "src/**/*.tsx",
-//     "src/**/*.vue",
-//     "mock/**/*.ts",
-//     "mock/*.ts",
-//     "tests/**/*.ts",
-//     "tests/**/*.tsx",
-//     "./types/*.d.ts"
-//   ],
-//   "exclude": [
-//     "node_modules",
-//     "build/*.ts"
-//   ]
-// }
