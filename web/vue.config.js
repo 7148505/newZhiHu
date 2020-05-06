@@ -22,45 +22,44 @@ module.exports = {
   // https://www.foobar.com/my-app/
   // then change this to '/my-app/'
   publicPath: BASE_URL,
-  configureWebpack: () => ({
-    name: name,
-    resolve: {
-      alias: {
-        '@': resolve('src'),
-        '@assets': resolve('src/assets'),
-        '@less': resolve('src/assets/less'),
-        '@js': resolve('src/assets/js'),
-        '@components': resolve('src/components'),
-        '@filters': resolve('src/filters'),
-        '@store': resolve('src/store'),
-        '@views': resolve('src/views'),
+  // configureWebpack: () => ({
+  // resolve: {
+  //   alias: {
+  //     '@': resolve('src'),
+  //     '@assets': resolve('src/assets'),
+  //     '@less': resolve('src/assets/less'),
+  //     '@js': resolve('src/assets/js'),
+  //     '@components': resolve('src/components'),
+  //     '@filters': resolve('src/filters'),
+  //     '@store': resolve('src/store'),
+  //     '@views': resolve('src/views'),
 
-        // 文件别名
-        // 'services': resolve('src/services'),
-      }
-    },
-    plugins: genPlugins(),
-    // 生产环境去掉 console.log
-    // https://github.com/cklwblove/vue-cli3-template/issues/12
-    optimization: getOptimization()
-  }),
+  //     // 文件别名
+  //     // 'services': resolve('src/services'),
+  //   }
+  // },
+  // plugins: genPlugins(),
+  // 生产环境去掉 console.log
+  // https://github.com/cklwblove/vue-cli3-template/issues/12
+  // optimization: getOptimization()
+  // }),
   // 设为false打包时不生成.map文件
   // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
-  devServer: {
-    open: process.platform === 'darwin',
-    host: '0.0.0.0',
-    port,
-    https: false,
-    hotOnly: false,
-    overlay: {
-      warnings: false,
-      errors: true
-    },
-    '/api': {
-      target: `http://localhost:${port}/index/api`,
-      ws: true,
-      changeOrigin: true
-    },
-  },
+  // devServer: {
+  //   // open: process.platform === 'darwin',
+  //   host: '0.0.0.0',
+  //   port,
+  //   https: false,
+  //   hotOnly: false,
+  //   overlay: {
+  //     warnings: false,
+  //     errors: true
+  //   },
+  //   '/api': {
+  //     target: `http://localhost:${port}/index/api`,
+  //     ws: true,
+  //     changeOrigin: true
+  //   },
+  // },
   productionSourceMap: false
 };

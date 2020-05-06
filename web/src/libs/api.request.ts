@@ -1,19 +1,28 @@
-import axios, {AxiosResponse, AxiosRequestConfig} from "axios";
+import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
 import config from "@/config/index";
 // import {Message} from "element-ui";
 // import stroe from "@/stroe";
 
-declare type Methods = |"GET" | "OPTIONS" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
+declare type Methods =
+  | "GET"
+  | "OPTIONS"
+  | "HEAD"
+  | "POST"
+  | "PUT"
+  | "DELETE"
+  | "TRACE"
+  | "CONNECT";
 declare interface Datas {
   method?: Methods;
-  [key : string] : any;
+  [key: string]: any;
 }
 
-const baseUrl = process.env.NODE_ENV === "development"
-  ? config.baseUrl.dev
-  : config.baseUrl.pro;
+const baseUrl =
+  process.env.NODE_ENV === "development"
+    ? config.baseUrl.dev
+    : config.baseUrl.pro;
 class HttpRequest {
-  public queue : any;
+  public queue: any;
   public constructor() {
     this.queue = {};
   }
@@ -24,51 +33,55 @@ class HttpRequest {
     };
     return config;
   }
-  destroy(url : string) {
+  destroy(url: string) {
     delete this.queue[url];
     if (!Object.keys(this.queue).length) {
       // hide loading
     }
   }
-  interceptors(instance : any, url?: string) {
+  interceptors(instance: any, url?: string) {
     // 请求拦截
-    instance
-      .interceptors
-      .request
-      .use((config : AxiosRequestConfig) => {
+    instance.interceptors.request.use(
+      (config: AxiosRequestConfig) => {
         // 添加全局的loading...
-        if (!Object.keys(this.queue).length) {}
+        if (!Object.keys(this.queue).length) {
+        }
         if (url) {
           this.queue[url] = true;
         }
         return config;
-      }, (error : any) => {
+      },
+      (error: any) => {
         return Promise.reject(error);
-      });
+      }
+    );
     // 响应拦截
-    instance
-      .interceptors
-      .response
-      .use((res : AxiosResponse) => {
+    instance.interceptors.response.use(
+      (res: AxiosResponse) => {
         if (url) {
           this.destroy(url);
         }
-        const {data, status} = res;
+        const { data, status } = res;
         if (data.type == "application/octet-stream") {
-          return Object.assign({}, {
-            data,
-            status
-          }, {header: res.headers});
+          return Object.assign(
+            {},
+            {
+              data,
+              status
+            },
+            { header: res.headers }
+          );
         } else {
-          return {data, status};
+          return { data, status };
         }
-        return {data, status};
-      }, (error : any) => {
+        return { data, status };
+      },
+      (error: any) => {
         if (url) {
           this.destroy(url);
         }
         if (error && error.request) {
-          let status = error.request.status;
+          const status = error.request.status;
           switch (status) {
             case 401:
               console.error("接口配置未经授权！");
@@ -88,9 +101,10 @@ class HttpRequest {
           }
         }
         return Promise.reject(error);
-      });
+      }
+    );
   }
-  async request(options : AxiosRequestConfig) {
+  async request(options: AxiosRequestConfig) {
     const instance = axios.create();
     options = Object.assign(this.getInsideConfig(), options);
     await this.interceptors(instance, options.url);

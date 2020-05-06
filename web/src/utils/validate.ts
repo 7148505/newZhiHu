@@ -1,5 +1,5 @@
 export function isValidUsername(str: string) {
-  const validMap = ['admin', 'editor'];
+  const validMap = ["admin", "editor"];
   return validMap.indexOf(str.trim()) >= 0;
 }
 
@@ -26,8 +26,8 @@ export function validateAlphabets(str: string) {
  * @returns {Boolean}
  */
 export function isArray(arg: any) {
-  if (typeof Array.isArray === 'undefined') {
-    return Object.prototype.toString.call(arg) === '[object Array]';
+  if (typeof Array.isArray === "undefined") {
+    return Object.prototype.toString.call(arg) === "[object Array]";
   }
   return Array.isArray(arg);
 }
@@ -36,6 +36,6 @@ export function isArray(arg: any) {
  * @param {string} str
  * @returns {Boolean}
  */
-export function isString(str:any) {
-  return typeof str === 'string' || str instanceof String;
+export function isString(str: any) {
+  return typeof str === "string" || str instanceof String;
 }

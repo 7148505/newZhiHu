@@ -1,17 +1,17 @@
-import axios from '@/libs/api.request'
+import axios from "@/libs/api.request";
 
-export const saveErrorLogger = (info:any) => {
+export const saveErrorLogger = (info: any) => {
   return axios.request({
-    url: 'index/api/userList',
+    url: "index/api/userList",
     data: info,
-    method: 'get'
-  })
-}
+    method: "get"
+  });
+};
 
-export const userRegistration = (info:any) => {
+export const userRegistration = (info: any) => {
   return axios.request({
-    url: 'index/api/register',
+    url: "index/api/register",
     data: info,
-    method: 'post'
-  })
-}
+    method: "post"
+  });
+};
