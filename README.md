@@ -7,11 +7,11 @@ See [Configuration Reference](https://cli.vuejs.org/zh/config/).
 
 - 前端使用 TypeScript。
 
-- 项目使用 Vue CLI 3 初始化，在此基础上修改了很多默认配置，更加适合当前项目，性能更优。
+- 项目使用 Vue CLI 4 初始化，在此基础上修改了很多默认配置，更加适合当前项目，性能更优。
 
 ### 技术栈
 
-前端：HTML、CSS、Less、ES6(7|8)、Vue CLI、Vue.JS、Vuex、Vue Router3、Axios、lodash
+前端：HTML、CSS、Less、ES6(7|8)、Vue CLI、Vue.JS、Vuex、Vue Router、Axios、lodash
 
 后端：Node.js、MySQL/MongoDB
 
