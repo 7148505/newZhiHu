@@ -1,33 +1,33 @@
 <template>
-  <div class="container">
-    <div class="login-wrapper">
-      <div class="header">Login</div>
-      <div class="form-wrapper">
-        <input
-          type="text"
-          name="username"
-          placeholder="username"
-          class="input-item"
-          v-model="loginForm.username"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          class="input-item"
-          v-model="loginForm.password"
-          @keyup="checkCapslock"
-          @blur="capsTooltip = false"
-          @keyup.enter="handleLogin"
-        />
-        <!-- <button class="btn">Login</button> -->
-        <div class="btn" @click="handleLogin">
-          Login
+  <div class="Fcontainer">
+    <div class="container">
+      <div class="login-wrapper">
+        <div class="header">Login</div>
+        <div class="form-wrapper">
+          <input
+            type="text"
+            name="username"
+            placeholder="username"
+            class="input-item"
+            v-model="loginForm.username"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            class="input-item"
+            v-model="loginForm.password"
+            @keyup="checkCapslock"
+            @blur="capsTooltip = false"
+            @keyup.enter="handleLogin"
+          />
+          <!-- <button class="btn">Login</button> -->
+          <div class="btn" @click="handleLogin">Login</div>597501
         </div>
-      </div>
-      <div class="msg">
-        Don`t have account?
-        <a href="#">Sign up</a>
+        <div class="msg">
+          Don`t have account?
+          <a href="#">Sign up</a>
+        </div>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
 // import Vue from "vue";
 import { Vue, Component } from "vue-property-decorator";
 // import { Route } from "vue-router";
-import { getUserList, userRegistration,userLogin } from "../api/data";
+import { getUserList, userRegistration, userLogin } from "../api/data";
 
 @Component({
   name: "Login",
@@ -81,7 +81,7 @@ export default class Login extends Vue {
     userLogin(this.loginForm).then((res: object) => {
       // this.tableData = res.data;
       // console.log("登录" + res);
-      console.log(res)
+      console.log(res);
     });
   }
 }
@@ -94,10 +94,15 @@ export default class Login extends Vue {
   font-family: "Open Sans Light";
   letter-spacing: 0.05em;
 }
-
+.Fcontainer {
+  height: 100%;
+  background-color: #b8e5f8;
+}
 .container {
   height: 100%;
-  background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+  background-image: url("../assets/background/loginbgm.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .login-wrapper {
