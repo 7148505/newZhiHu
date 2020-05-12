@@ -22,7 +22,7 @@
             @keyup.enter="handleLogin"
           />
           <!-- <button class="btn">Login</button> -->
-          <div class="btn" @click="handleLogin">Login</div>597501
+          <div class="btn" @click="handleLogin">登录</div>597501
         </div>
         <div class="msg">
           Don`t have account?
